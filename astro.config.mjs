@@ -5,6 +5,7 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
+	base: '/documentation/',
 	integrations: [
 		starlight({
 			title: 'My Docs',
@@ -29,7 +30,7 @@ export default defineConfig({
 			],
 		}),
 	],
-	
+
 	output: 'server',
 	adapter: node({
 		mode: 'standalone',
