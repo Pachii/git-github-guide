@@ -12,16 +12,19 @@ export default defineConfig({
 			},
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Table of Contents',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: '1. Introduction', slug: 'guides/introduction' },
+						{ label: '2. Setup', slug: 'guides/setup' },
+						{ label: '3. Enterprise and Team Collaboration', slug: 'guides/enterprise-and-team' },
+						{ label: '3. Repositories', slug: 'guides/repositories' },
+						{ label: '4. Making Local Changes', slug: 'guides/making-local-changes' },
+						{ label: '5. Branches', slug: 'guides/branches' },
+						{ label: '6. Going Further', slug: 'guides/going-further' },
 					],
 				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
+
 			],
 		}),
 	],

@@ -1,0 +1,66 @@
+---
+title: Repositories
+description: n/a
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+## 3.1. What is a repository?
+A repository (or “repo”) is a storage space on GitHub where developers manage their code, project files, and version history. It tracks all changes, allowing collaboration, branching, and rollback to previous versions.
+
+## 3.2. Ownership and Privacy
+A repository can be owned individually, or by multiple collaborators. Collaborators will have to invite you to their repositories via email.
+
+image here
+
+You can view pending invites to repositories under the notifications tab in the top right.
+
+When you create a repository, you can choose to make it either public or private. This can be easily changed within repository settings after the matter.
+
+image here
+
+image here
+
+If you're showing off work to employers, you can grant them access to a private repository with a key.
+
+<Aside type="caution" title="Security Concerns">Carefully consider the visibility when managing repositories of sensitive code.</Aside>
+
+## 3.3. Creating a Repository
+On the upper right hand corner of the navigation bar, click the + button and select New Repository.
+
+image here
+
+It should direct you to a page labeled Create a new repository.
+
+Here, you can name your repository and select privacy permissions. You will also have the option to include a README file, which is just a file included in many project repositories. It typically provides essential information about a project, including its purpose, installation instructions, usage guidelines, and any dependencies. 
+
+## 3.4. Cloning a Repository
+Because the repository we just created is a “remote” repository (meaning it exists on a server/online), we need a way to work on our project locally, on our own computer! 
+
+On GitHub, navigate to the main page of your repository. Above the list of your files, click the < > Code button.
+
+image here
+
+Copy the URL for the repository. 
+
+You'll see there are 3 different options to copy the URL:
+
+- **HTTPS** is used when copying the repository in your terminal using Git commands, which is what this guide will be focusing on. 
+
+- **SSH** is used if you have a certificate issued by your organization, and is typically used in professional, enterprise settings. 
+
+- **GitHub CLI** is used if you are cloning your repository in your terminal using GitHub CLI. 
+
+Once you have your HTTPS link copied to your clipboard, navigate to your terminal. Enter the directory in which you want to store your project’s git file. 
+
+Enter the following command. This will be the same for Mac/Windows/Linux.
+
+```bash
+git clone https://github.com/.../....git
+```
+
+Press enter, and you should see the following result. 
+
+image here
+
+Congratulations, you’ve just cloned your first repository!

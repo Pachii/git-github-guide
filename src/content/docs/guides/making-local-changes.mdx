@@ -1,0 +1,57 @@
+---
+title: Making Local Changes
+description: n/a
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+With your repository set up on your local branch, it's time to start coding! This section will walk you through some of the most important Git commands, so it's crucial you understand them.
+
+## 4.1. Viewing and Adding Changes
+
+Once you've done some work, you'll have to stage your changes. Think of staging as isolating the files you want to manage. 
+To check which files have been modified, use:
+```bash frame="none"
+git status
+```
+Before committing, changes need to be staged with the add command. To stage a specific file, run:
+```bash frame="none"
+git add <file-name>
+```
+To stage all modified files:
+
+## 4.2. Committing Changes
+
+A commit is a snapshot of staged changes. To commit, use:
+
+```bash frame="none"
+git commit -m "Descriptive message about changes"
+```
+
+## 4.3. Pushing Changes
+
+Once you have made and committed changes, push them to the remote repository:
+
+```bash frame="none"
+git push origin <branch-name>
+```
+
+This updates the remote repository with your latest commits.
+
+## 4.4. Pulling Changes
+
+To ensure your local branch is up to date with the remote repository before making further changes, use:
+
+```bash frame="none"
+git pull origin <branch-name>
+```
+
+This fetches and merges remote updates into your branch, helping prevent conflicts.
+
+## 4.5. Undoing Changes
+
+`git checkout -- \<file-name\>`: Reverts changes in a file.
+
+`git reset HEAD \<file-name\>`: Unstages a file from a commit.
+
+`git revert \<commit-hash\>`: Creates a new commit that undoes changes from a specific commit.

@@ -1,0 +1,91 @@
+---
+title: Branches
+description: n/a
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
+
+## 5.1. What is a branch?
+
+A branch in Git is an independent line of development that allows multiple versions of a project to exist simultaneously. Branches are useful for developing features, fixing bugs, or experimenting without affecting the main codebase.
+By default, Git creates a branch named main (or master in older repositories). Developers create branches to work on separate tasks without interfering with each other’s progress. Once a branch is complete, it can be merged back into the main branch.
+
+## 5.2. Creating and working in a branch
+
+To create a new branch, use the following command:
+
+```bash frame="none"
+git branch <branch-name>
+```
+
+This creates a branch but does not switch to it. To move into the new branch, use:
+
+```bash frame="none"
+git checkout <branch-name>
+```
+
+Alternatively, you can create and switch to a new branch in a single command:
+
+```bash frame="none"
+git checkout -b <branch-name>
+```
+
+After creating a branch, any changes made will be isolated from the main branch until merged.
+
+## 5.3. Merging
+
+Once changes in a branch are complete, they need to be merged into the main branch.
+
+First, switch to the main branch:
+
+```bash frame="none"
+git checkout main
+```
+Then merge the changes from the feature branch:
+
+```bash frame="none"
+git merge <branch-name>
+```
+
+If conflicts arise, Git will prompt you to resolve them before completing the merge. It should be noted - merge conflicts can get pretty nasty on large scale projects! It is recommended to carefully consider how you divide work among your team.
+
+## 5.4. Pull requests with GitHub
+On GitHub, merging is commonly done through a pull request (PR). A PR allows collaborators to review code before merging. To create a pull request:
+
+<Steps>
+
+1. Push the branch to GitHub:
+
+   ```bash frame="none"
+   git push -u origin <branch-name>
+   ```
+
+2. Navigate to the repository on GitHub and click New Pull Request.
+3. Select the branch and compare changes with the main branch.
+4. Click Create Pull Request, add a description, and submit for review.
+
+</Steps>
+
+Once approved, the PR can be merged into the main branch through the GitHub interface.
+
+
+## 5.5. Advanced branch tools
+
+```bash frame="none"
+git branch -d <branch-name> 
+```
+
+Deletes a branch after merging.
+
+```bash frame="none"
+git branch -D <branch-name>
+```
+
+Forces deletion of a branch, even if it has unmerged changes.
+
+```bash frame="none"
+git rebase <branch-name>
+```
+
+Reapplies commits from one branch onto another, ensuring a linear commit history.
