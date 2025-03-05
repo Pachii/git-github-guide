@@ -1,0 +1,65 @@
+name: Deploy Documentation Website
+
+on:
+  push:
+    branches:
+      - main # Change if deploying from another branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "23.7.0"
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Build the Astro site (creates the dist/ folder)
+      - name: Build site
+        run: npm run build
+
+      # 5. Prepare a deploy folder with built files and package files
+      - name: Prepare deploy folder
+        run: |
+          rm -rf deploy
+          mkdir deploy
+          # Copy everything from dist/ into deploy/
+          cp -r dist/* deploy/
+          # Also copy package.json and package-lock.json (if exists)
+          cp package.json deploy/
+          [ -f package-lock.json ] && cp package-lock.json deploy/ || echo "No package-lock.json found"
+
+      # 6. Deploy the combined deploy folder to your server using rsync
+      - name: Deploy deploy folder via rsync
+        uses: burnett01/rsync-deployments@7.0.2
+        with:
+          switches: "-avzr --delete"
+          path: "deploy/" # The local deploy folder
+          remote_path: "/home/ubuntu/me/documentation" # The target directory on your server
+          remote_host: ${{ secrets.SERVER_HOST }}
+          remote_user: ${{ secrets.SERVER_USER }}
+          remote_key: ${{ secrets.SERVER_SSH_KEY }}
+          remote_port: ${{ secrets.SERVER_PORT }}
+
+      # 7. Install production dependencies and restart the Node process for the documentation site
+      - name: Install dependencies and restart server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            cd /home/ubuntu/me/documentation
+            npm install --production
+            pm2 restart documentation-site || echo "No process to restart"
