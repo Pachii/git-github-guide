@@ -5,12 +5,14 @@ description: n/a
 
 import { Aside } from '@astrojs/starlight/components';
 
-With your repository set up on your local branch, it's time to start coding! This section will walk you through some of the most important Git commands, so it's crucial you understand them.
+With your local repository set up and linked to your remote repository, it's time to start coding! This section will walk you through some of the most important Git commands, so it's crucial that you understand them.
 
 ## 4.1. Viewing and Adding Changes
 
-Once you've done some work, you'll have to stage your changes. Think of staging as isolating the files you want to manage. 
-To check which files have been modified, use:
+Once you've done some work, whether it's adding, modifying, or deleting any file(s), you'll have to **stage your changes**. Think of staging as isolating the files you want to manage.
+
+To check which files have been modified and their staged status, use:
+
 ```bash frame="none"
 git status
 ```
@@ -18,15 +20,23 @@ Before committing, changes need to be staged with the add command. To stage a sp
 ```bash frame="none"
 git add <file-name>
 ```
-To stage all modified files:
+
+To stage all modified files (added, changed, and deleted):
+```bash frame="none"
+git add -A
+```
 
 ## 4.2. Committing Changes
 
-A commit is a snapshot of staged changes. To commit, use:
+A commit is a snapshot of all staged changes. To commit, use:
 
 ```bash frame="none"
 git commit -m "Descriptive message about changes"
 ```
+
+<Aside type="tip" title="Helpful Analogy">
+You can think of **staging changes** as packing a box with related items (files), and **committing changes** as sealing up the box and labeling it so you and others know what's inside.
+</Aside>
 
 ## 4.3. Pushing Changes
 
@@ -50,8 +60,17 @@ This fetches and merges remote updates into your branch, helping prevent conflic
 
 ## 4.5. Undoing Changes
 
-`git checkout -- \<file-name\>`: Reverts changes in a file.
+```bash frame="none"
+git checkout -- <file-name>
+```
+Reverts changes in a file.
 
-`git reset HEAD \<file-name\>`: Unstages a file from a commit.
+```bash frame="none"
+git reset HEAD <file-name>
+```
+Unstages a file from a commit.
 
-`git revert \<commit-hash\>`: Creates a new commit that undoes changes from a specific commit.
+```bash frame="none"
+git revert <commit-hash>
+```
+Creates a new commit that undoes changes from a specific commit.
