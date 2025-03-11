@@ -1,24 +1,30 @@
 ---
-title: Introduction
+title: "Introduction to GitHub with Git Command Line: Comprehensive Beginner's Guide"
 description: n/a
 ---
 
-Git is an open-source software serving as the industry standard for version control in software development. In the professional world, it is almost always used in conjunction with GitHub, an online service where large teams can collaborate efficiently on projects. In this comprehensive guide, you will learn the essential commands and functions of Git and GitHub. By the end, you will have the knowledge in order to thrive in a software development environment, whether in a school project or your new internship.
+import { Aside } from '@astrojs/starlight/components';
 
-## 1.1. What is Version Control and Git?
+When software developers want to collaborate on a project, how should they share their work with each other?
 
-If software developers are collaborating on a programming project, how should they share their work with each other? Unfortunately, the answer is not passing around flash drives (even though that would be really funny).
+In the past, a team of developers might have manually shared files with each other, passing around physical flash drives or sending each other downloads of the newest changes through emails. Imagine you're a developer on a team working on a new feature, only to realize that you were making changes on an outdated version of the code! You may be able to think of many other problems with this rudimentary approach--how will multiple changes be combined between different developers? How can this possibly scale to larger teams? What about security concerns from physical flash drives or unmoderated emails?
 
-A version control system is software that aids developers by tracking changes to files and directories in repositories, or projects. Utilizing a version control system, individuals and groups alike can track their progress over time, save different versions of their code, and share their code with others easily over the internet.
+Thankfully, today, these problems have long been solved with **version control**. In this comprehensive guide, you will learn the meaning of version control, as well as the features and functions of the two most popular and essential tools in the professional development world for this task, **Git** and **GitHub**. By the end, you will have the knowledge in order to thrive in a software development environment, whether in a school project, your new internship, or in any other professional setting.
 
-## 1.2. What is Git?
+<Aside type="tip" title="Tip">The beginning of this guide is designed to be hands-on, with step-by-step instructions. For the best learning experience, we recommend following along on your own computer as you read. After completing chapter 3, **Repositories**, you can follow chapters 4 and 5 by creating and modifying simple text files.</Aside>
 
-Git is a free, open-source version control system - the industry standard at that. As expected, it allows users to track and make changes across different branches and easily manage the iteration of the code they’re working on.
+## 1.1. What is a Version Control System?
 
-## 1.3. What is GitHub?
+**Version Control System**, often abbreviated as **VCS**, refers to software with helpful features that aid developers by tracking changes to files and directories in their projects. Utilizing a version control system, individuals and groups alike can track their progress over time, save different versions of their code, and share their code with others easily over the internet.
 
-GitHub is a powerful online platform designed for software development and collaboration. Built on Git, GitHub enables developers to create, store, manage, and share code efficiently. It serves as a centralized hub where individuals and teams can track changes, work on projects simultaneously, and maintain a structured development workflow.
+## 1.2. What is Git and GitHub?
 
-## 1.4. Who should use GitHub?
+**Git** is the industry standard software for **local version control**, which means that it runs directly on your computer. It provides standardized features and functions to enable you, the developer, to organize multiple versions of code and keep a detailed history of changes.
+
+**GitHub** is a powerful **online, cloud-based platform** designed for software development and collaboration. GitHub allows projects to be stored remotely on their cloud servers, not only acting as a backup of the codebase, but also primarily allowing seamless synchronization and management of the codebase, enabling many developers to work on the same project efficiently.
+
+By using Git with Github, a developer in a team can write and update code on their own computer, recording their own changes with **Git**. Then, once they are ready, they can upload their changes online to **GitHub**, notifying and allowing other developers to synchronize the new changes seamlessly, without ever needing to worry about having the latest version of code.
+
+## 1.3. Who should use GitHub?
 
 GitHub is widely used by software engineers, open-source contributors, and tech teams to collaborate on projects, review code, and manage software development lifecycles. While it's especially beneficial for teams working together on shared codebases, individual developers also leverage GitHub to track their progress, contribute to open-source projects, and showcase their work in professional portfolios. Whether you're a beginner learning to code or an experienced developer managing large-scale applications, GitHub provides essential tools for version control, collaboration, and project management.

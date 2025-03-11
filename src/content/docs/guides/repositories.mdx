@@ -4,11 +4,49 @@ description: n/a
 ---
 
 import { Aside } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
+import { FileTree } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-## 3.1. What is a repository?
-A repository (or “repo”) is a storage space on GitHub where developers manage their code, project files, and version history. It tracks all changes, allowing collaboration, branching, and rollback to previous versions.
+A repository (commonly shortened to “repo”) is a directory where Git is enabled. Because of Git, developers can use all the version control features that Git provides, also enabling the ability to set up and use GitHub with their project.
 
-## 3.2. Ownership and Privacy
+## Creating a New Local Repository
+When starting a project from scratch, you will typically first create a **local repository** on your computer, which you will then link to a **remote repository** on GitHub so that you can sync your code with the cloud. First, let's focus on creating your first local repository.
+<Steps>
+1. **Create a new directory** (folder) in an easily accessible location, such as your desktop. Name the directory `my-first-repo`.
+   <Aside type="caution" title="Caution">Using only Git locally, you can technically name your directory using any valid combination of characters supported by your computer's filesystem. However, GitHub restricts the repository name to only contain ASCII letters, digits, and the characters `.` (period), `-` (hyphen), and `_` (underscore). Therefore, pay close attention to abide by GitHub's naming requirements to ensure you can keep a consistent repository name.</Aside>
+   <Aside type="note" title="Note">Try to follow [common practice for naming repositories](https://stackoverflow.com/a/11947816). It is generally recommended that repository names should be specific, all lowercase, and have hyphens where spaces should be (since spaces are not allowed for GitHub repositories).</Aside>
+2. Now, we will enable Git in our new, blank project directory to start tracking changes. This is where our first Git command comes into play--`git init`. This command will initialize Git in the current directory, enabling all of Git's version control features to work and start tracking the project. Using your computer's terminal or command line prompt, **navigate to your project directory and run** `git init`.
+   <Tabs>
+     <TabItem label="Windows">
+       ```batch
+       cd C:\Users\YOUR_USERNAME\Desktop\my-first-repo
+       git init
+       ```
+     </TabItem>
+     <TabItem label="Mac/Linux">
+       ```bash
+       cd ~/Desktop/my-first-repo
+       git init
+       ```
+     </TabItem>
+    </Tabs>
+   When the `git init` command is run, it creates an invisible `.git` directory in the project directory--this is where all the project's version control information is stored, out of sight and managed by Git.
+</Steps>
+
+
+Congratulations, you have just created your first local repository managed by Git! Next, let's move on setting up a **remote repository** in GitHub.
+
+## 3.2. Creating a New Remote Repository on GitHub
+On the upper right hand corner of the navigation bar, click the + button and select New Repository.
+
+image here
+
+It should direct you to a page labeled **Create a new repository**.
+
+Here, you can name your repository and select privacy permissions. You will also have the option to include a README file, which is just a file included in many project repositories. It typically provides essential information about a project, including its purpose, installation instructions, usage guidelines, and any dependencies. 
+
+## 3.3. Ownership and Privacy
 A repository can be owned individually, or by multiple collaborators. Collaborators will have to invite you to their repositories via email.
 
 image here
@@ -24,15 +62,6 @@ image here
 If you're showing off work to employers, you can grant them access to a private repository with a key.
 
 <Aside type="caution" title="Security Concerns">Carefully consider the visibility when managing repositories of sensitive code.</Aside>
-
-## 3.3. Creating a Repository
-On the upper right hand corner of the navigation bar, click the + button and select New Repository.
-
-image here
-
-It should direct you to a page labeled Create a new repository.
-
-Here, you can name your repository and select privacy permissions. You will also have the option to include a README file, which is just a file included in many project repositories. It typically provides essential information about a project, including its purpose, installation instructions, usage guidelines, and any dependencies. 
 
 ## 3.4. Cloning a Repository
 Because the repository we just created is a “remote” repository (meaning it exists on a server/online), we need a way to work on our project locally, on our own computer! 

@@ -5,10 +5,10 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-	base: '/documentation/',
+	// base: '/documentation/',
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: "",
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
@@ -19,7 +19,6 @@ export default defineConfig({
 						// Each item here is one entry in the navigation menu.
 						{ label: '1. Introduction', slug: 'guides/introduction' },
 						{ label: '2. Setup', slug: 'guides/setup' },
-						{ label: '3. Enterprise and Team Collaboration', slug: 'guides/enterprise-and-team' },
 						{ label: '3. Repositories', slug: 'guides/repositories' },
 						{ label: '4. Making Local Changes', slug: 'guides/making-local-changes' },
 						{ label: '5. Branches', slug: 'guides/branches' },
